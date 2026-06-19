@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajesh Dammala — Senior Platform Reliability Engineer</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%230070C0' width='100' height='100'/%3E%3Ctext x='50' y='65' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ERD%3C/text%3E%3C/svg%3E">
+    <style>
+        :root {
+            --primary: #00a8e8;
+            --primary-dark: #007ba7;
+            --secondary: #005a87;
+            --accent: #00d4ff;
+            --dark-bg: #0a0f1e;
+            --dark-card: #0f1729;
+            --dark-text: #e8ebf0;
+            --light-bg: #f5f7fa;
+            --light-card: #ffffff;
+            --light-text: #1a1f2e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--dark-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background: var(--light-bg);
+            color: var(--light-text);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 168, 232, 0.15);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 168, 232, 0.1) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(45deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(120deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light-mode .hero h1 {
+            background: linear-gradient(120deg, var(--primary-dark), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 168, 232, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(0, 168, 232, 0.2);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        body.light-mode .btn-secondary {
+            color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            background: rgba(0, 112, 192, 0.05);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 168, 232, 0.3);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+            opacity: 0.9;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--dark-card);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        body.light-mode .stat-card {
+            background: var(--light-card);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 168, 232, 0.2);
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-card .label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+
+        /* Expertise Grid */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: var(--dark-card);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-top: 3px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        body.light-mode .expertise-card {
+            background: var(--light-card);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(0, 168, 232, 0.25);
+            border-top-color: var(--accent);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .expertise-card p {
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .expertise-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .expertise-card li {
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+            opacity: 0.75;
+        }
+
+        .expertise-card li:before {
+            content: "→ ";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            background: var(--dark-card);
+            border-radius: 0.75rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        body.light-mode .timeline-item {
+            background: var(--light-card);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-item:hover {
+            border-left-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .timeline-item .meta {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .timeline-item li {
+            padding: 0.5rem 0;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        .timeline-item li:before {
+            content: "▸ ";
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-card);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(0, 168, 232, 0.2);
+        }
+
+        body.light-mode footer {
+            background: #f0f2f5;
+            border-top-color: rgba(0, 112, 192, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-grid,
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">RD — SRE</div>
+            <div class="nav-right">
+                <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Rajesh Dammala</h1>
+            <p>Senior Platform Reliability Engineer</p>
+            <p style="font-size: 1rem; opacity: 0.8;">Scaling Reliability as a First-Class Discipline</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">Learn More</a>
+                <a href="Rajesh_Dammala_Resume_SRE_Portfolio_v1.pdf" class="btn btn-secondary">📥 Download Resume</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a visionary SRE leader with 14+ years defining and scaling reliability across mission-critical production systems. I specialize in transforming reactive incident response into proactive, measurement-driven reliability.</p>
+                    <h3>My Passion</h3>
+                    <p>I believe reliability isn't just about preventing outages—it's about enabling teams. I build platforms, tooling, and practices that make it intuitive for engineers to operate reliable systems independently.</p>
+                    <h3>How I Work</h3>
+                    <p>Systems thinker. Impact-oriented. Comfortable with ambiguity. I define problems, propose solutions, and execute with autonomy while influencing across teams without direct authority.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="number">14+</div>
+                        <div class="label">Years Production Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">100%</div>
+                        <div class="label">SLA Compliance (20+ Services)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">32%</div>
+                        <div class="label">MTTR Improvement</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">175+</div>
+                        <div class="label">Golden Path Playbooks</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Competencies -->
+        <section>
+            <h2>Core Competencies</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>🎯 Reliability Engineering</h3>
+                    <p>Defining SLOs/SLAs, error budgets, and operational readiness frameworks. Establishing measurement-driven reliability as organizational discipline.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>📊 Observability Architecture</h3>
+                    <p>Building comprehensive observability platforms. Metrics, logging, tracing, dashboards. DataDog, Azure AppInsights, Kusto/KQL.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>🚨 Incident Management</h3>
+                    <p>Incident response frameworks, detection, triage, on-call rotation management. Blameless postmortems and learning culture.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>🛠️ Platform Tooling</h3>
+                    <p>Building self-service platforms and golden paths. Enabling teams to adopt standards without platform dependency.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>👥 Team Leadership</h3>
+                    <p>Leading 32-person global teams. Cross-functional influence without direct authority. Mentoring and scaling reliability culture.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>⚙️ Cloud & Infrastructure</h3>
+                    <p>AWS, Kubernetes (EKS), Terraform. Azure LiveSite, AppInsights. Infrastructure as code at scale.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section>
+            <h2>Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Lead Escalations Manager, Xbox Customer Experience SRE</h3>
+                    <div class="meta">Microsoft Corporation (via TechMahindra) | Redmond, WA | May 2021 - Present</div>
+                    <ul>
+                        <li><strong>Defined SLOs/SLAs</strong> for 20+ mission-critical services; 100% SLA compliance through measurement-driven improvements</li>
+                        <li><strong>Architected observability platform</strong> enabling 32 engineers to independently measure and troubleshoot reliability</li>
+                        <li><strong>Engineered incident automation</strong> reducing alert noise by 500+ and automating 30-35% of incident resolution</li>
+                        <li><strong>Built 175+ playbooks</strong> establishing golden paths; reduced MTTR by 32%, improved efficiency from 85% to 98%</li>
+                        <li><strong>Eliminated 25,000+ false incidents</strong> through noise reduction and alerting optimization</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Operations Lead, Azure LiveSite Operations</h3>
+                    <div class="meta">Microsoft Corporation (via Mindtree) | Redmond, WA | Nov 2016 - May 2021</div>
+                    <ul>
+                        <li>Led 32-person global operations team; scaled incident response and operational readiness practices</li>
+                        <li>Deep-dive technical investigations into complex production issues; created 200+ bugs and feature upgrades</li>
+                        <li>Built PowerShell automation saving thousands of operational hours annually</li>
+                        <li>Established incident management and change management standards for Azure platforms</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engineering Principles -->
+        <section>
+            <h2>Engineering Principles</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>📐 Measurement-Driven</h3>
+                    <p>What gets measured gets managed. Define clear SLIs, track them religiously, use data to drive reliability decisions.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>🤝 Developer Empathy</h3>
+                    <p>Reliability tooling must be intuitive and self-service. Reduce friction for teams to adopt standards and golden paths.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>🔄 Continuous Learning</h3>
+                    <p>Blameless postmortems. Document patterns. Share knowledge. Build learning into operations culture.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>🎯 Outcome-Focused</h3>
+                    <p>Focus on real reliability outcomes, not process overhead. Impact over bureaucracy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section>
+            <h2>Get In Touch</h2>
+            <div style="text-align: center; padding: 2rem; background: var(--dark-card); border-radius: 0.75rem;">
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Ready to scale reliability at your organization? Let's connect.</p>
+                <div class="social-links">
+                    <a href="mailto:rajesh.dammala@gmail.com">✉️ Email</a>
+                    <a href="https://linkedin.com/in/rajesh-dammala" target="_blank">🔗 LinkedIn</a>
+                    <a href="tel:+14252290060">📞 Call</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Rajesh Dammala • Senior Platform Reliability Engineer</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">Powered by innovation in reliability engineering</p>
+    </footer>
+
+    <script>
+        // Dark/Light Mode Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.querySelector('.theme-toggle');
+            
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark');
+                btn.textContent = '🌙 Dark';
+            } else {
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+                btn.textContent = '☀️ Light';
+            }
+        }
+
+        // Load saved theme on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                document.querySelector('.theme-toggle').textContent = '☀️ Light';
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
