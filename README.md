@@ -115,13 +115,11 @@ Your work will directly improve system reliability, reduce incidents, and enable
 
 | Field | Value |
 |-------|-------|
-| **Status** | ⏳ Not Yet Applied |
-| **Date Applied** | — |
-| **Resume Submitted** | — |
-| **Cover Letter Included** | — |
-| **Portfolio URL** | — |
-| **Last Updated** | 2026-06-18 |
-| **Next Step** | Generate 2-page ATS resume + Cover Letter + Portfolio |
+| **Status** | ⏳ Ready to Apply |
+| **Portfolio** | https://rdammala.github.io/Senior-Platform-Reliability-Engineer/ |
+| **Date Created** | 2026-06-18 |
+| **Resumes** | 2-page ATS + Cover Letter + 4-5 page CV |
+| **Next Step** | Submit via Ashby + LinkedIn |
 
 ---
 
