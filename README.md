@@ -3,7 +3,7 @@
 Personal portfolio site showcasing 14+ years of SRE leadership and reliability engineering expertise.
 
 ## Live Site
-https://rdammala.github.io/Senior-Platform-Reliability-Engineer/
+https://rdammala-org.github.io/Senior-Platform-Reliability-Engineer/
 
 ## Stack
 - HTML5 / CSS3 / Vanilla JavaScript
